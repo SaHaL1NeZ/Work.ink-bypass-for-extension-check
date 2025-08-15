@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Work.ink bypass for extension-check",
+    "author": "SaHaL1NeZ (Original: workink-management@proton.me)",
+    "description": "Safely bypasses work.ink PDF Editor installation check.",
+    "version": "1.0.4",
+    "icons": {
+        "128": "icon.png"
+    },
+    "action": {
+        "default_icon": "icon.png",
+        "default_title": "Work.ink bypass for extension-check"
+    },
+    "externally_connectable": {
+        "matches": [
+            "*://*.work.ink/*",
+            "*://work.ink/*"
+        ]
+    },
+    "permissions": [
+        "storage"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.work.ink/*",
+                "*://work.ink/*"
+            ],
+            "js": ["inject2.js"],
+            "run_at": "document_start"
+        }
+    ]
+}
